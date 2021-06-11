@@ -1,4 +1,4 @@
-package be.steven.d.dog.contactlistbackend.model;
+package be.steven.d.dog.contactlistbackend.security.model;
 
 public enum RoleType {
     ROLE_USER,

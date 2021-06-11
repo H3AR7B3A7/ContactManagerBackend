@@ -1,5 +1,6 @@
-package be.steven.d.dog.contactlistbackend.model;
+package be.steven.d.dog.contactlistbackend.security.model;
 
+import be.steven.d.dog.contactlistbackend.model.ContactList;
 import lombok.*;
 
 import javax.persistence.*;

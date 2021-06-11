@@ -1,6 +1,6 @@
 package be.steven.d.dog.contactlistbackend.security.service;
 
-import be.steven.d.dog.contactlistbackend.model.User;
+import be.steven.d.dog.contactlistbackend.security.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

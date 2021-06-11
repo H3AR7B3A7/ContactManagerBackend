@@ -1,4 +1,4 @@
-package be.steven.d.dog.contactlistbackend.controller;
+package be.steven.d.dog.contactlistbackend.security.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;

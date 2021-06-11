@@ -1,6 +1,6 @@
-package be.steven.d.dog.contactlistbackend.repository;
+package be.steven.d.dog.contactlistbackend.security.repository;
 
-import be.steven.d.dog.contactlistbackend.model.User;
+import be.steven.d.dog.contactlistbackend.security.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

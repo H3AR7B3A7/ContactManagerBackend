@@ -1,12 +1,12 @@
 package be.steven.d.dog.contactlistbackend.service;
 
+import be.steven.d.dog.contactlistbackend.mapper.ContactMapper;
 import be.steven.d.dog.contactlistbackend.model.Contact;
 import be.steven.d.dog.contactlistbackend.model.ContactList;
 import be.steven.d.dog.contactlistbackend.repository.ContactListRepository;
 import be.steven.d.dog.contactlistbackend.repository.ContactRepository;
 import be.steven.d.dog.contactlistbackend.repository.dto.CreateNewContactCommand;
 import be.steven.d.dog.contactlistbackend.repository.dto.CreateNewContactListCommand;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +16,12 @@ public class ContactServiceImpl implements ContactService {
 
     private final ContactListRepository contactListRepository;
     private final ContactRepository contactRepository;
+    private final ContactMapper contactMapper;
 
-    @Autowired
-    public ContactServiceImpl(ContactListRepository contactListRepository, ContactRepository contactRepository) {
+    public ContactServiceImpl(ContactListRepository contactListRepository, ContactRepository contactRepository, ContactMapper contactMapper) {
         this.contactListRepository = contactListRepository;
         this.contactRepository = contactRepository;
+        this.contactMapper = contactMapper;
     }
 
     @Override
@@ -34,17 +35,14 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void createNewContactList(CreateNewContactListCommand command) {
-        ContactList newContactList = new ContactList(command.getUserId(), command.getName());
+    public void createNewContactList(CreateNewContactListCommand createNewContactListCommand) {
+        ContactList newContactList = contactMapper.mapContactList(createNewContactListCommand);
         contactListRepository.saveAndFlush(newContactList);
     }
 
     @Override
     public void createNewContact(CreateNewContactCommand createNewContactCommand) {
-        Contact newContact = new Contact(createNewContactCommand.getContactListId(),
-                createNewContactCommand.getName(),
-                createNewContactCommand.getEmail(),
-                createNewContactCommand.getNumber());
+        Contact newContact = contactMapper.mapContact(createNewContactCommand);
         contactRepository.saveAndFlush(newContact);
     }
 }

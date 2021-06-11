@@ -1,4 +1,4 @@
-package be.steven.d.dog.contactlistbackend.repository.dto;
+package be.steven.d.dog.contactlistbackend.security.repository.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

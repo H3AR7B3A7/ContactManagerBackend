@@ -1,14 +1,14 @@
-package be.steven.d.dog.contactlistbackend.controller;
+package be.steven.d.dog.contactlistbackend.security.controller;
 
-import be.steven.d.dog.contactlistbackend.model.Role;
-import be.steven.d.dog.contactlistbackend.model.RoleType;
-import be.steven.d.dog.contactlistbackend.model.User;
-import be.steven.d.dog.contactlistbackend.repository.RoleRepository;
-import be.steven.d.dog.contactlistbackend.repository.UserRepository;
-import be.steven.d.dog.contactlistbackend.repository.dto.JwtResponse;
-import be.steven.d.dog.contactlistbackend.repository.dto.LoginRequest;
-import be.steven.d.dog.contactlistbackend.repository.dto.MessageResponse;
-import be.steven.d.dog.contactlistbackend.repository.dto.SignupRequest;
+import be.steven.d.dog.contactlistbackend.security.model.Role;
+import be.steven.d.dog.contactlistbackend.security.model.RoleType;
+import be.steven.d.dog.contactlistbackend.security.model.User;
+import be.steven.d.dog.contactlistbackend.security.repository.RoleRepository;
+import be.steven.d.dog.contactlistbackend.security.repository.UserRepository;
+import be.steven.d.dog.contactlistbackend.security.repository.dto.JwtResponse;
+import be.steven.d.dog.contactlistbackend.security.repository.dto.LoginRequest;
+import be.steven.d.dog.contactlistbackend.security.repository.dto.MessageResponse;
+import be.steven.d.dog.contactlistbackend.security.repository.dto.SignupRequest;
 import be.steven.d.dog.contactlistbackend.security.jwt.JwtUtils;
 import be.steven.d.dog.contactlistbackend.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
