@@ -12,6 +12,7 @@ import java.util.Date;
 @Component
 @Slf4j
 public class JwtUtils {
+
     @Value("${be.steven.d.dog.contactlistbackend.app.jwtSecret}")
     private String jwtSecret;
 

@@ -24,6 +24,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @NoArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

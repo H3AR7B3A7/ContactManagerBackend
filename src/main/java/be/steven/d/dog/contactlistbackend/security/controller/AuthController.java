@@ -1,5 +1,6 @@
 package be.steven.d.dog.contactlistbackend.security.controller;
 
+import be.steven.d.dog.contactlistbackend.security.jwt.JwtUtils;
 import be.steven.d.dog.contactlistbackend.security.model.Role;
 import be.steven.d.dog.contactlistbackend.security.model.RoleType;
 import be.steven.d.dog.contactlistbackend.security.model.User;
@@ -9,7 +10,6 @@ import be.steven.d.dog.contactlistbackend.security.repository.dto.JwtResponse;
 import be.steven.d.dog.contactlistbackend.security.repository.dto.LoginRequest;
 import be.steven.d.dog.contactlistbackend.security.repository.dto.MessageResponse;
 import be.steven.d.dog.contactlistbackend.security.repository.dto.SignupRequest;
-import be.steven.d.dog.contactlistbackend.security.jwt.JwtUtils;
 import be.steven.d.dog.contactlistbackend.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,20 +31,21 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-    @Autowired
-    AuthenticationManager authenticationManager;
+
+    private final AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder encoder;
+    private final JwtUtils jwtUtils;
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    RoleRepository roleRepository;
-
-    @Autowired
-    PasswordEncoder encoder;
-
-    @Autowired
-    JwtUtils jwtUtils;
+    public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder encoder, JwtUtils jwtUtils) {
+        this.authenticationManager = authenticationManager;
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.encoder = encoder;
+        this.jwtUtils = jwtUtils;
+    }
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
