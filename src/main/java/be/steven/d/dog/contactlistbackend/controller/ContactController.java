@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/contacts")
+@CrossOrigin(origins = "*", maxAge = 3600) // Change "*" to your domain name.
 public class ContactController {
 
     private final ContactService contactService;
