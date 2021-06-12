@@ -45,4 +45,14 @@ public class ContactServiceImpl implements ContactService {
         Contact newContact = contactMapper.mapContact(createNewContactCommand);
         contactRepository.saveAndFlush(newContact);
     }
+
+    @Override
+    public void deleteContact(Long contactId) {
+        contactRepository.deleteById(contactId);
+    }
+
+    @Override
+    public void deleteList(Long listId) {
+        contactListRepository.deleteById(listId);
+    }
 }

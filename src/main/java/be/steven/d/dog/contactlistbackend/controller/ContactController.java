@@ -40,4 +40,14 @@ public class ContactController {
     public void createNewContact(@RequestBody CreateNewContactCommand createNewContactCommand) {
         contactService.createNewContact(createNewContactCommand);
     }
+
+    @DeleteMapping("/delete/{contactId}")
+    public void deleteContact(@PathVariable Long contactId){
+        contactService.deleteContact(contactId);
+    }
+
+    @DeleteMapping("/delete/lists/{listId}")
+    public void deleteList(@PathVariable Long listId){
+        contactService.deleteList(listId);
+    }
 }

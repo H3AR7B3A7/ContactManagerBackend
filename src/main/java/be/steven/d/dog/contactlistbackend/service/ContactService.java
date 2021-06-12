@@ -8,6 +8,7 @@ import be.steven.d.dog.contactlistbackend.repository.dto.CreateNewContactListCom
 import java.util.List;
 
 public interface ContactService {
+
     List<ContactList> findByUserId(Long userId);
 
     List<Contact> findByContactListId(Long listId);
@@ -15,4 +16,8 @@ public interface ContactService {
     void createNewContactList(CreateNewContactListCommand createNewContactListCommand);
 
     void createNewContact(CreateNewContactCommand createNewContactCommand);
+
+    void deleteContact(Long contactId);
+
+    void deleteList(Long listId);
 }
