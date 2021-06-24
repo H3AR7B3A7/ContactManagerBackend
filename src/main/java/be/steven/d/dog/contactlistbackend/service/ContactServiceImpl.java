@@ -18,41 +18,41 @@ public class ContactServiceImpl implements ContactService {
     private final ContactRepository contactRepository;
     private final ContactMapper contactMapper;
 
-    public ContactServiceImpl(ContactListRepository contactListRepository, ContactRepository contactRepository, ContactMapper contactMapper) {
+    public ContactServiceImpl(final ContactListRepository contactListRepository, final ContactRepository contactRepository, final ContactMapper contactMapper) {
         this.contactListRepository = contactListRepository;
         this.contactRepository = contactRepository;
         this.contactMapper = contactMapper;
     }
 
     @Override
-    public List<ContactList> findByUserId(Long userId) {
+    public List<ContactList> findByUserId(final Long userId) {
         return contactListRepository.findByUserId(userId);
     }
 
     @Override
-    public List<Contact> findByContactListId(Long listId) {
+    public List<Contact> findByContactListId(final Long listId) {
         return contactRepository.findByContactListId(listId);
     }
 
     @Override
-    public void createNewContactList(CreateNewContactListCommand createNewContactListCommand) {
-        ContactList newContactList = contactMapper.mapContactList(createNewContactListCommand);
+    public void createNewContactList(final CreateNewContactListCommand createNewContactListCommand) {
+        final ContactList newContactList = contactMapper.mapContactList(createNewContactListCommand);
         contactListRepository.saveAndFlush(newContactList);
     }
 
     @Override
-    public void createNewContact(CreateNewContactCommand createNewContactCommand) {
-        Contact newContact = contactMapper.mapContact(createNewContactCommand);
+    public void createNewContact(final CreateNewContactCommand createNewContactCommand) {
+        final Contact newContact = contactMapper.mapContact(createNewContactCommand);
         contactRepository.saveAndFlush(newContact);
     }
 
     @Override
-    public void deleteContact(Long contactId) {
+    public void deleteContact(final Long contactId) {
         contactRepository.deleteById(contactId);
     }
 
     @Override
-    public void deleteList(Long listId) {
+    public void deleteList(final Long listId) {
         contactListRepository.deleteById(listId);
     }
 }

@@ -51,7 +51,7 @@ public class User {
     @OneToMany
     private List<ContactList> contactLists = new ArrayList<>();
 
-    public User(String username, String email, String password, Set<Role> roles) {
+    public User(final String username, final String email, final String password, final Set<Role> roles) {
         this.username = username;
         this.email = email;
         this.password = password;

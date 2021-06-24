@@ -21,7 +21,7 @@ public class ContactList {
     private Long userId;
     private String name;
 
-    public ContactList(Long userId, String name) {
+    public ContactList(final Long userId, final String name) {
         this.userId = userId;
         this.name = name;
     }

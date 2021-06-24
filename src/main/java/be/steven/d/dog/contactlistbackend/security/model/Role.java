@@ -1,6 +1,7 @@
 package be.steven.d.dog.contactlistbackend.security.model;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
