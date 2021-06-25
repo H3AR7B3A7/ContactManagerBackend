@@ -1,18 +1,16 @@
 package be.steven.d.dog.contactlistbackend.model;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 public class ContactList {
 
     @Id
@@ -20,9 +18,8 @@ public class ContactList {
     private Long id;
     private Long userId;
     private String name;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contactList")
+    @JsonIgnoreProperties("contactList")
+    private List<Contact> contacts = new ArrayList<>();
 
-    public ContactList(final Long userId, final String name) {
-        this.userId = userId;
-        this.name = name;
-    }
 }
