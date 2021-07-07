@@ -50,7 +50,7 @@ For the Json go to:
 
 For yaml:
 
-- http://localhost:8080/api-docs.yaml
+- http://localhost:8080/v3/api-docs.yaml
 
 That's really all there is to it... No annotations / configuration needed.
 
