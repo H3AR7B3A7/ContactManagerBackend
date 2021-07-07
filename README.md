@@ -62,5 +62,7 @@ If you are using **spring security**, make sure you can reach these paths for it
 
 We can find more information [here](https://www.baeldung.com/spring-rest-openapi-documentation).
 
+We can also create our own yaml. For that we can find an example [here](https://editor.swagger.io/).
+
 ---
 *Work in progress ...*
