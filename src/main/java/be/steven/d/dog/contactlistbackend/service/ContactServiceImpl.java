@@ -35,15 +35,15 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void createNewContactList(final CreateNewContactListCommand createNewContactListCommand) {
+    public ContactList createNewContactList(final CreateNewContactListCommand createNewContactListCommand) {
         final ContactList newContactList = contactMapper.mapContactList(createNewContactListCommand);
-        contactListRepository.saveAndFlush(newContactList);
+        return contactListRepository.saveAndFlush(newContactList);
     }
 
     @Override
-    public void createNewContact(final CreateNewContactCommand createNewContactCommand) {
+    public Contact createNewContact(final CreateNewContactCommand createNewContactCommand) {
         final Contact newContact = contactMapper.mapContact(createNewContactCommand);
-        contactRepository.saveAndFlush(newContact);
+        return contactRepository.saveAndFlush(newContact);
     }
 
     @Override

@@ -6,7 +6,14 @@ import be.steven.d.dog.contactlistbackend.repository.dto.CreateNewContactCommand
 import be.steven.d.dog.contactlistbackend.repository.dto.CreateNewContactListCommand;
 import be.steven.d.dog.contactlistbackend.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -33,13 +40,13 @@ public class ContactController {
     }
 
     @PostMapping("/lists")
-    public void createNewContactList(@RequestBody final CreateNewContactListCommand createNewContactListCommand) {
-        contactService.createNewContactList(createNewContactListCommand);
+    public ContactList createNewContactList(@RequestBody final CreateNewContactListCommand createNewContactListCommand) {
+        return contactService.createNewContactList(createNewContactListCommand);
     }
 
     @PostMapping("/")
-    public void createNewContact(@RequestBody final CreateNewContactCommand createNewContactCommand) {
-        contactService.createNewContact(createNewContactCommand);
+    public Contact createNewContact(@RequestBody final CreateNewContactCommand createNewContactCommand) {
+        return contactService.createNewContact(createNewContactCommand);
     }
 
     @DeleteMapping("/delete/{contactId}")

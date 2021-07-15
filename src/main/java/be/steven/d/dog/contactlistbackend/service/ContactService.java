@@ -13,9 +13,9 @@ public interface ContactService {
 
     List<Contact> findByContactListId(Long listId);
 
-    void createNewContactList(CreateNewContactListCommand createNewContactListCommand);
+    ContactList createNewContactList(CreateNewContactListCommand createNewContactListCommand);
 
-    void createNewContact(CreateNewContactCommand createNewContactCommand);
+    Contact createNewContact(CreateNewContactCommand createNewContactCommand);
 
     void deleteContact(Long contactId);
 
