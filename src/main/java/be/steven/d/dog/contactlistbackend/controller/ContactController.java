@@ -49,12 +49,12 @@ public class ContactController {
         return contactService.createNewContact(createNewContactCommand);
     }
 
-    @DeleteMapping("/delete/{contactId}")
+    @DeleteMapping("/{contactId}")
     public void deleteContact(@PathVariable final Long contactId) {
         contactService.deleteContact(contactId);
     }
 
-    @DeleteMapping("/delete/lists/{listId}")
+    @DeleteMapping("/lists/{listId}")
     public void deleteList(@PathVariable final Long listId) {
         contactService.deleteList(listId);
     }
